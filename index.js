@@ -32,8 +32,18 @@
 // console.log(__filename);
 
 
-// Node Modules
+// Node Modules and module pattern
 
-let lenght = require('./hello');
 
-console.log(lenght(['h', 'a', 's', 'h', 'h', 'i', 'i', 'r']));
+// let lenght = require('./hello');
+// console.log(lenght.Greeting(['h', 'a', 's', 'h', 'h', 'i', 'i', 'r']));
+
+
+
+// Reading and writing files.
+
+let fs = require('fs');
+
+let readedFile = fs.readFileSync('MyInformation.txt', 'utf8');
+fs.writeFileSync('MyInformation.txt', `${readedFile} I am a web developer`)
+
