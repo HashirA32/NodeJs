@@ -2,13 +2,15 @@
 
 
 
-// let http = require('http');
-// let server = http.createServer(( request, responce) => {
-// console.log("You hit a request.")
-// });
-// server.listen('3000', 'localhost', () => {
-//     console.log('I am listning')
-// });
+let http = require('http');
+let server = http.createServer(( request, responce) => {
+    console.log("You hit a request" + request.url);
+    responce.writeHead(200, {'content-type' : 'text/plain'});
+    responce.end("Responce has been made.")
+});
+server.listen('3000', 'localhost', () => {
+    console.log('I am listning')
+});
 
 
 
@@ -44,6 +46,15 @@
 
 let fs = require('fs');
 
-let readedFile = fs.readFileSync('MyInformation.txt', 'utf8');
-fs.writeFileSync('MyInformation.txt', `${readedFile} I am a web developer`)
+// let readedFile = fs.readFileSync('MyInformation.txt', 'utf8');
+// fs.writeFileSync('MyInformation.txt', `${readedFile} I am a web developer`)
 
+
+// Creating and deleting the Directories
+
+
+fs.mkdirSync('carsDetails');
+
+fs.rmdir('carsDetails', () => {
+    console.log("directory removed")
+});
