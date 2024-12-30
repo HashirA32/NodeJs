@@ -7,7 +7,7 @@ let fs = require('fs');
 let server = http.createServer(( request, responce) => {
     console.log("You hit a request" + request.url);
     responce.writeHead(200, {'content-type' : 'text/plain'});
-    responce.end("Responce has been made.")
+    liveData.pipe(responce);
 });
 server.listen('3000', 'localhost', () => {
     console.log('I am listning')
@@ -62,12 +62,19 @@ server.listen('3000', 'localhost', () => {
 // Stream and buffers
 
 
-let liveData = fs.createReadStream(__dirname+ '/MyInformation.txt', 'utf8');
-let writeLiveData = fs.createWriteStream(__dirname + '/MyNewInformation')
-liveData.on('data', (Chunk) => {
-    console.log("The chunk hasbeen received!");
-    writeLiveData.write(Chunk);
-});
+// let liveData = fs.createReadStream(__dirname+ '/MyInformation.txt', 'utf8');
+// let writeLiveData = fs.createWriteStream(__dirname + '/MyNewInformation')
+// liveData.on('data', (Chunk) => {
+//     console.log("The chunk hasbeen received!");
+//     writeLiveData.write(Chunk);
+// });
+  
 
+// pipes in Node
+
+let liveData = fs.createReadStream(__dirname+ '/MyInformation.txt', 'utf8');
+// let writeLiveData = fs.createWriteStream(__dirname + '/MyNewInformation');
+
+// liveData.pipe(writeLiveData);
 
 
