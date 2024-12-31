@@ -6,7 +6,7 @@ let fs = require('fs');
 
 let server = http.createServer(( request, responce) => {
     console.log("You hit a request" + request.url);
-    responce.writeHead(200, {'content-type' : 'text/plain'});
+    responce.writeHead(200, {'content-type' : 'html'});
     liveData.pipe(responce);
 });
 server.listen('3000', 'localhost', () => {
@@ -72,7 +72,7 @@ server.listen('3000', 'localhost', () => {
 
 // pipes in Node
 
-let liveData = fs.createReadStream(__dirname+ '/MyInformation.txt', 'utf8');
+let liveData = fs.createReadStream(__dirname+ '/index.html', 'utf8');
 // let writeLiveData = fs.createWriteStream(__dirname + '/MyNewInformation');
 
 // liveData.pipe(writeLiveData);
