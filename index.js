@@ -1,17 +1,17 @@
 // How to make a server
 
 let http = require('http');
-let fs = require('fs');
+// let fs = require('fs');
 
 
-let server = http.createServer(( request, responce) => {
-    console.log("You hit a request" + request.url);
-    responce.writeHead(200, {'content-type' : 'html'});
-    liveData.pipe(responce);
-});
-server.listen('3000', 'localhost', () => {
-    console.log('I am listning')
-});
+// let server = http.createServer(( request, responce) => {
+//     console.log("You hit a request" + request.url);
+//     responce.writeHead(200, {'content-type' : 'html'});
+//     liveData.pipe(responce);
+// });
+// server.listen('3000', 'localhost', () => {
+//     console.log('I am listning')
+// });
 
 
 
@@ -72,9 +72,26 @@ server.listen('3000', 'localhost', () => {
 
 // pipes in Node
 
-let liveData = fs.createReadStream(__dirname+ '/index.html', 'utf8');
+// let liveData = fs.createReadStream(__dirname+ '/index.html', 'utf8');
 // let writeLiveData = fs.createWriteStream(__dirname + '/MyNewInformation');
 
 // liveData.pipe(writeLiveData);
 
 
+// Streaming Jason data
+
+let server = http.createServer((req, res ) => {
+    res.writeHead(200, {'content-type': 'application/json'})
+
+    let MyObj = {
+        name: "Hashir Ali",
+        rollNo: 32,
+        class: "2nd year"
+    }
+
+    res.end(JSON.stringify(MyObj));
+})
+
+server.listen('3000', 'localhost',()=>{
+    console.log("I am lisning !")
+})
