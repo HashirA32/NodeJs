@@ -1,8 +1,7 @@
 // How to make a server
 
-let http = require('http');
+let http = require("http");
 // let fs = require('fs');
-
 
 // let server = http.createServer(( request, responce) => {
 //     console.log("You hit a request" + request.url);
@@ -13,10 +12,7 @@ let http = require('http');
 //     console.log('I am listning')
 // });
 
-
-
 // Accessing the Global objects
-
 
 // console.log("hy Hashir")
 
@@ -34,33 +30,24 @@ let http = require('http');
 // }, 1000)
 // console.log(__filename);
 
-
 // Node Modules and module pattern
-
 
 // let lenght = require('./hello');
 // console.log(lenght.Greeting(['h', 'a', 's', 'h', 'h', 'i', 'i', 'r']));
 
-
-
 // Reading and writing files.
-
 
 // let readedFile = fs.readFileSync('MyInformation.txt', 'utf8');
 // fs.writeFileSync('MyInformation.txt', `${readedFile} I am a web developer`)
 
-
 // Creating and deleting the Directories
-
 
 // fs.mkdirSync('carsDetails');
 // fs.rmdir('carsDetails', () => {
 //     console.log("directory removed")
 // });
 
-
 // Stream and buffers
-
 
 // let liveData = fs.createReadStream(__dirname+ '/MyInformation.txt', 'utf8');
 // let writeLiveData = fs.createWriteStream(__dirname + '/MyNewInformation')
@@ -68,7 +55,6 @@ let http = require('http');
 //     console.log("The chunk hasbeen received!");
 //     writeLiveData.write(Chunk);
 // });
-  
 
 // pipes in Node
 
@@ -77,21 +63,21 @@ let http = require('http');
 
 // liveData.pipe(writeLiveData);
 
-
 // Streaming Jason data
 
-let server = http.createServer((req, res ) => {
-    res.writeHead(200, {'content-type': 'application/json'})
+let server = http.createServer((req, res) => {
+  res.writeHead(200, { "content-type": "application/json" });
 
-    let MyObj = {
-        name: "Hashir Ali",
-        rollNo: 32,
-        class: "2nd year"
-    }
+  let MyObj = {
+    name: "Hashir Ali",
+    rollNo: 32,
+    class: "2nd year",
+    age: 19,
+  };
 
-    res.end(JSON.stringify(MyObj));
-})
+  res.end(JSON.stringify(MyObj));
+});
 
-server.listen('3000', 'localhost',()=>{
-    console.log("I am lisning !")
-})
+server.listen("3000", "localhost", () => {
+  console.log("I am lisning !");
+});
