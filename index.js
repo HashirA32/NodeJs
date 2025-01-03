@@ -1,6 +1,6 @@
 // How to make a server
 
-let http = require("http");
+// let http = require("http");
 // let fs = require('fs');
 
 // let server = http.createServer(( request, responce) => {
@@ -65,19 +65,43 @@ let http = require("http");
 
 // Streaming Jason data
 
-let server = http.createServer((req, res) => {
-  res.writeHead(200, { "content-type": "application/json" });
+// let server = http.createServer((req, res) => {
+//   res.writeHead(200, { "content-type": "application/json" });
 
-  let MyObj = {
-    name: "Hashir Ali",
-    rollNo: 32,
-    class: "2nd year",
-    age: 19,
-  };
+//   let MyObj = {
+//     name: "Hashir Ali",
+//     rollNo: 32,
+//     class: "2nd year",
+//     age: 19,
+//   };
 
-  res.end(JSON.stringify(MyObj));
+//   res.end(JSON.stringify(MyObj));
+// });
+
+// server.listen("3000", "localhost", () => {
+//   console.log("I am lisning !");
+// });
+
+// Express JS
+
+let express = require("express");
+let app = express();
+
+app.get("/", (req, res) => {
+  res.send('This is home page!');
 });
 
-server.listen("3000", "localhost", () => {
-  console.log("I am lisning !");
+app.get("/contact", (req, res) => {
+  res.send('This is contact page!');
 });
+
+app.get("/about", (req, res) => {
+  res.send('This is about page!');
+});
+
+app.get("/profile/:id", (req, res)=>{
+  res.send("You hit a request to see profile with the ID : " + req.params.id)
+})
+
+
+app.listen(3000);
