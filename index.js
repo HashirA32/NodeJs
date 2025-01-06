@@ -82,25 +82,25 @@
 //   console.log("I am lisning !");
 // });
 
-// Express JS
+// Express JS  ,  Template engine and Partial Views
 
 let express = require("express");
 let app = express();
+app.set('view engine', 'ejs');
 
 app.get("/", (req, res) => {
-  res.send('This is home page!');
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.get("/contact", (req, res) => {
-  res.send('This is contact page!');
-});
-
-app.get("/about", (req, res) => {
-  res.send('This is about page!');
+  res.render('contact');
 });
 
 app.get("/profile/:id", (req, res)=>{
-  res.send("You hit a request to see profile with the ID : " + req.params.id)
+  let data = {
+    age : 19, contact : 92324589231 , hobby : [ 'Cricket', 'Coding', 'Gaming' ]
+  }
+  res.render('profile', { person: req.params.id, data })
 })
 
 
