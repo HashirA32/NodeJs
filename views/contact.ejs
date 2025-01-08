@@ -4,33 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Making a server</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-
-      body {
-        background-color: rgb(12, 11, 11);
-        color: rgb(182, 136, 22);
-        padding: 80px;
-        text-align: center;
-      }
-
-      h1 {
-        font-size: 48px;
-        text-transform: uppercase;
-        padding: 80px;
-      }
-
-      p {
-        font-size: 18px;
-      }
-    </style>
+    <link rel="stylesheet" href="/assets/style.css" />
   </head>
   <body>
-    <% include partials/nav.ejs %>
+    <%- include('partials/nav') %>
     <h1>This is contact page!</h1>
     <p>Here you can find contacts.</p>
+
+    <form method="POST" action="/contact">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          value="<%= qr.name %>"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="department">Department</label>
+        <input
+          type="text"
+          id="department"
+          name="department"
+          value="<%= qr.dept %>"
+          placeholder="Enter your department"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="semester">Semester</label>
+        <input
+          type="text"
+          id="semester"
+          name="semester"
+          value="<%= qr.sem %>"
+          placeholder="Enter your semester"
+          required
+        />
+      </div>
+      <input type="submit" class="submit-btn" value="submit" />
+    </form>
   </body>
 </html>

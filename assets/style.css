@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+body {
+  background-color: rgb(12, 11, 11);
+  color: rgb(182, 136, 22);
+
+  text-align: center;
+}
+
+h1 {
+  font-size: 48px;
+  text-transform: uppercase;
+  padding: 10px;
+  padding-top: 40px;
+}
+
+p {
+  font-size: 18px;
+
+  padding: 20px;
+}
+
+pre,
+li {
+  font-size: 12px;
+}
+
+ol {
+  width: fit-content;
+}
+
+nav {
+  padding: 0;
+  margin: 0;
+  width: auto;
+  height: 15px;
+}
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+li {
+  padding-right: 35px;
+}
+
+a {
+  text-decoration: none;
+  color: gold;
+  font-size: 24px;
+  font-weight: 700;
+}
+.form-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 14rem;
+}
+
+.form-container h2 {
+  text-align: center;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input {
+  width: 18rem;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+.submit-btn {
+  width: 10rem;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}

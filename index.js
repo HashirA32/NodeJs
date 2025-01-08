@@ -82,18 +82,27 @@
 //   console.log("I am lisning !");
 // });
 
-// Express JS  ,  Template engine and Partial Views
+// Express JS  ,  Template engine and Partial Views  ,   Middle ware and static files , Qury String
 
 let express = require("express");
 let app = express();
-app.set('view engine', 'ejs');
+app.use('/assets', express.static('assets'));
+var bodyParser = require('body-parser')
 
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+app.set('view engine', 'ejs');
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.render("index");
 });
 
 app.get("/contact", (req, res) => {
-  res.render('contact');
+  res.render('contact', {qr: req.query});
+});
+
+app.post("/contact", urlencodedParser, (req, res) => {
+  console.log(req.body)
+  res.render('contact-sucsses', {data: req.body});
 });
 
 app.get("/profile/:id", (req, res)=>{

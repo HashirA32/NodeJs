@@ -8,17 +8,9 @@
   </head>
   <body>
     <%- include('partials/nav') %>
-
-    <h1>
-      This is profile of<br />
-      <%= person %>
-    </h1>
-    <pre>Age : <%= data.age %>          Contact : <%= data.contact %></pre>
-    <p><strong> Hobbies </strong></p>
-    <ol>
-      <% data.hobby.forEach((item)=>{ %>
-      <li><%= item %></li>
-      <% }); %>
-    </ol>
+    <h1>This contact is added to our website.</h1>
+    <p>Name : <%= data.name %></p>
+    <p>Department : <%= data.department %></p>
+    <p>Semester : <%= data.semester %></p>
   </body>
 </html>
