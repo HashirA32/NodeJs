@@ -84,3 +84,26 @@
 
 // Express JS  ,  Template engine and Partial Views  ,   Middle ware and static files , Qury String
 
+let express = require("express");
+let app = express();
+app.use('/assets', express.static('assets'));
+var bodyParser = require('body-parser')
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+app.set('view engine', 'ejs');
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+app.get("/contact", (req, res) => {
+  res.render('contact', {qr: req.query});
+});
+
+app.post("/contact", urlencodedParser, (req, res) => {
+  res.render('contact-sucsses', {data: req.body});
+});
+
+
+
+app.listen(3001);
