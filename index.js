@@ -107,3 +107,14 @@ app.post("/contact", urlencodedParser, (req, res) => {
 
 
 app.listen(3001);
+
+
+// Using filter method
+
+
+let arr = [3,6,7,9,34,8,9,4,67,23,65,7,65,32];
+
+let filteredArr = arr.filter((val)=>{
+  return val >= 18;
+});
+console.log(filteredArr)
